@@ -23,6 +23,7 @@ module.exports = async function(deployer, network, accounts) {
   await deployer.deploy(WeatherCrowdsale, rate, wallet, deployedToken.address, openingTime, closingTime, cap);
   // transfer ownership to crowdsale contract
   const deployedCrowdsale = await WeatherCrowdsale.deployed();
-  await deployedToken.transferOwnership(deployedCrowdsale.address)
+  await deployedToken.transferOwnership(deployedCrowdsale.address);
+  return true;
 };
 
