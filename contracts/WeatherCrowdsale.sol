@@ -3,9 +3,10 @@ pragma solidity 0.4.24;
 import "/openzeppelin-solidity/contracts/crowdsale/Crowdsale.sol";
 import "/openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol";
 import "/openzeppelin-solidity/contracts/crowdsale/validation/CappedCrowdsale.sol";
+import "/openzeppelin-solidity/contracts/crowdsale/emission/MintedCrowdsale.sol";
 import "/openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 
-contract WeatherCrowdsale is Crowdsale, TimedCrowdsale, CappedCrowdsale {
+contract WeatherCrowdsale is Crowdsale, TimedCrowdsale, CappedCrowdsale, MintedCrowdsale {
     constructor(
       uint256 _rate, 
       address _wallet, 
@@ -18,10 +19,9 @@ contract WeatherCrowdsale is Crowdsale, TimedCrowdsale, CappedCrowdsale {
     Crowdsale(_rate, _wallet, _token) 
     TimedCrowdsale(_openingTime, _closingTime)
     CappedCrowdsale(_cap)
+    MintedCrowdsale()
 
     public {
-
-
 
     }
 }

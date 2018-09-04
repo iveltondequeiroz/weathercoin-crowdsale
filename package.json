@@ -12,6 +12,7 @@
   "author": "Ivelton Queiroz",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "openzeppelin-solidity": "1.12.0"
   }
 }
