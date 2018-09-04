@@ -11,19 +11,18 @@ const duration = {
   years: function (val) { return val * this.days(365); },
 };
 
-
 module.exports = async function(deployer, network, accounts) {
-   console.log("network network network > ", network)
-
   await deployer.deploy(WeatherToken, "Weather Token","WTH", 18);
   const deployedToken = await WeatherToken.deployed();
   const rate = 1000; // 1 eth = 1000 WTH tokens
   const wallet  = accounts[0];
-  console.log("wallet wallet wallet > ", wallet)
   const timeNow  = Math.floor(Date.now() / 1000);
   const openingTime =  timeNow + duration.seconds(30);
   const closingTime = timeNow + duration.years(1);
   const cap = web3.toWei(100); //100 eth
   await deployer.deploy(WeatherCrowdsale, rate, wallet, deployedToken.address, openingTime, closingTime, cap);
+  // transfer ownership to crowdsale contract
+  const deployedCrowdsale = await WeatherCrowdsale.deployed();
+  await deployedToken.transferOwnership(deployedCrowdsale.address)
 };
 
