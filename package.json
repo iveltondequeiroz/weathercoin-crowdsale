@@ -1,0 +1,17 @@
+{
+  "name": "weathercoin-crowdsale",
+  "version": "1.0.0",
+  "description": "ivico",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ivelton Queiroz",
+  "license": "ISC",
+  "dependencies": {
+    "openzeppelin-solidity": "1.12.0"
+  }
+}
